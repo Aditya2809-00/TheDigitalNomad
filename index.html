@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Nomad - Business Consulting & Data Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .skill-badge {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+        .achievement-number {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .contact-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-laptop-code text-indigo-600 mr-2"></i>The Digital Nomad
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium">About</a>
+                    <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium">Services</a>
+                    <a href="#expertise" class="text-gray-600 hover:text-indigo-600 font-medium">Expertise</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
+                </div>
+                <a href="#contact" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    Get Started
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white pt-24 pb-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                Transform Your Business with
+                <span class="text-yellow-300">AI-Powered Solutions</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+                Azure-certified Data Engineer & Business Consultant delivering end-to-end digital transformation, 
+                campaign management, and event solutions that drive measurable results.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 mb-12">
+                <a href="#services" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                    <i class="fas fa-rocket mr-2"></i>Explore Services
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition duration-300">
+                    <i class="fab fa-whatsapp mr-2"></i>WhatsApp: +44 7833815429
+                </a>
+            </div>
+            <div class="flex justify-center space-x-8 text-sm">
+                <div class="text-center">
+                    <div class="text-3xl font-bold">25%</div>
+                    <div>Conversion Boost</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold">35%</div>
+                    <div>Time Savings</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold">40%</div>
+                    <div>Process Improvement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Aditya Sasmal</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Microsoft 3x Certified Data Engineer with global consulting experience across UK, UAE, and India. 
+                    Specializing in transforming complex business challenges into streamlined, AI-powered solutions.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Professional Highlights</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Azure Data Engineer</strong> - Microsoft Fabric Analytics Engineer (DP-600) & Azure Fundamentals (AZ-900) certified
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Global Experience</strong> - Led projects at Icon Resources, Delphi Consulting, BCG, and iNeuron.ai
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Education</strong> - MSc Computer Science (AI) from University of Nottingham, B.Tech IT from University of Mumbai
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <div>
+                                <strong>Team Leadership</strong> - Successfully managed cross-functional teams up to 10 members
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Core Competencies</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Python & SQL</div>
+                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Azure & Fabric</div>
+                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">AI/ML & GenAI</div>
+                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Power BI</div>
+                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Data Pipelines</div>
+                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Business Analytics</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600">Comprehensive solutions to elevate your business performance</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Business Consulting -->
+                <div class="service-card p-8 rounded-xl border">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-2xl text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Business Consulting</h3>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
+                            <span>Data-driven strategy development & competitive analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
+                            <span>AI/ML implementation for business optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
+                            <span>Digital transformation & automation solutions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
+                            <span>Power BI dashboards & analytics setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
+                            <span>Process automation & workflow optimization</span>
+                        </li>
+                    </ul>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-green-800 font-semibold">Proven Results: 25% conversion boost, 35% efficiency improvement</p>
+                    </div>
+                </div>
+
+                <!-- Physical & Social Campaigns -->
+                <div class="service-card p-8 rounded-xl border">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-bullhorn text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Campaign Management</h3>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
+                            <span>Creative campaign ideation & strategy</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
+                            <span>Professional PDF design & flyer creation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
+                            <span>Social media campaign development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
+                            <span>Ad design & visual content creation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
+                            <span>Performance tracking & analytics</span>
+                        </li>
+                    </ul>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-blue-800 font-semibold">Creative Solutions: Custom designs, targeted messaging, measurable impact</p>
+                    </div>
+                </div>
+
+                <!-- Event Management -->
+                <div class="service-card p-8 rounded-xl border">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-calendar-alt text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Event Management</h3>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
+                            <span>End-to-end event planning & coordination</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
+                            <span>Corporate event design & execution</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
+                            <span>Digital event solutions & automation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
+                            <span>Stakeholder management & communication</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
+                            <span>Post-event analysis & reporting</span>
+                        </li>
+                    </ul>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <p class="text-yellow-800 font-semibold">Seamless Execution: Large-scale event delivery, team coordination expertise</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Technical Expertise</h2>
+                <p class="text-xl text-gray-600">Cutting-edge technologies and proven methodologies</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6 mb-12">
+                <div class="text-center p-6 bg-gray-50 rounded-xl">
+                    <i class="fas fa-brain text-3xl text-indigo-600 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">AI & Machine Learning</h3>
+                    <p class="text-gray-600">GenAI, Deep Learning, NLP, Predictive Analytics</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-xl">
+                    <i class="fas fa-cloud text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Cloud Platforms</h3>
+                    <p class="text-gray-600">Azure, Databricks, Fabric, Synapse Analytics</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-xl">
+                    <i class="fas fa-chart-bar text-3xl text-green-600 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Analytics & BI</h3>
+                    <p class="text-gray-600">Power BI, Tableau, Data Visualization, KPIs</p>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-xl">
+                    <i class="fas fa-cogs text-3xl text-purple-600 mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Automation</h3>
+                    <p class="text-gray-600">Process Automation, n8n, Workflow Optimization</p>
+                </div>
+            </div>
+            
+            <!-- Achievements -->
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-xl">
+                <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">Proven Track Record</h3>
+                <div class="grid md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="achievement-number text-4xl font-bold mb-2">25%</div>
+                        <p class="text-gray-700">Data Latency Reduction & Conversion Boost</p>
+                    </div>
+                    <div>
+                        <div class="achievement-number text-4xl font-bold mb-2">35%</div>
+                        <p class="text-gray-700">Documentation Time Savings through AI</p>
+                    </div>
+                    <div>
+                        <div class="achievement-number text-4xl font-bold mb-2">40%</div>
+                        <p class="text-gray-700">Recruitment Cycle Time Reduction</p>
+                    </div>
+                    <div>
+                        <div class="achievement-number text-4xl font-bold mb-2">15%</div>
+                        <p class="text-gray-700">Revenue Increase & Attrition Reduction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600">Ready to transform your business? Let's discuss your project.</p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="contact-card p-8 rounded-xl text-white">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fab fa-whatsapp text-2xl text-green-400 mr-4"></i>
+                                <div>
+                                    <p class="font-semibold">WhatsApp</p>
+                                    <p>+44 7833815429</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-2xl text-blue-400 mr-4"></i>
+                                <div>
+                                    <p class="font-semibold">Email</p>
+                                    <p>aditya.k.sasmal@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-2xl text-red-400 mr-4"></i>
+                                <div>
+                                    <p class="font-semibold">Location</p>
+                                    <p>London, United Kingdom</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fab fa-linkedin text-2xl text-blue-400 mr-4"></i>
+                                <div>
+                                    <p class="font-semibold">LinkedIn</p>
+                                    <p>linkedin.com/in/aditya-sasmal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Why Choose The Digital Nomad?</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Microsoft Certified Professional</strong>
+                                    <p class="text-gray-600">DP-600 & AZ-900 certified with proven Azure expertise</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Global Experience</strong>
+                                    <p class="text-gray-600">Worked with clients across UK, UAE, and India</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Measurable Results</strong>
+                                    <p class="text-gray-600">Consistently delivered 25-40% performance improvements</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>End-to-End Solutions</strong>
+                                    <p class="text-gray-600">From strategy to implementation and ongoing support</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <div class="flex flex-col md:flex-row justify-center gap-4">
+                        <a href="https://wa.me/447833815429" target="_blank" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300">
+                            <i class="fab fa-whatsapp mr-2"></i>Message on WhatsApp
+                        </a>
+                        <a href="mailto:aditya.k.sasmal@gmail.com" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300">
+                            <i class="fas fa-envelope mr-2"></i>Send Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <h3 class="text-2xl font-bold mb-2">
+                    <i class="fas fa-laptop-code text-indigo-400 mr-2"></i>The Digital Nomad
+                </h3>
+                <p class="text-gray-400">Transforming businesses through AI-powered solutions and strategic consulting</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://linkedin.com/in/aditya-sasmal" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a href="https://linktr.ee/Aditya_sasmal" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fas fa-link text-2xl"></i>
+                </a>
+                <a href="mailto:aditya.k.sasmal@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
+            <div class="border-t border-gray-700 pt-4">
+                <p class="text-gray-400">&copy; 2024 The Digital Nomad. All rights reserved. | Aditya Sasmal - Azure Data Engineer & Business Consultant</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
