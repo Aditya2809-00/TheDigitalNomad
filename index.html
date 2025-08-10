@@ -3,406 +3,1270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Digital Nomad - Business Consulting & Data Solutions</title>
+    <title>The Digital Nomad - Digital Product Agency</title>
+    <meta name="description" content="The Digital Nomad - A digital product agency empowering businesses with AI-driven solutions, growth marketing, and innovative digital products for the modern nomadic lifestyle.">
+    
+    <!-- External Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
         }
-        .service-card {
-            transition: all 0.3s ease;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .skill-badge {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-        }
-        .achievement-number {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        
+        .gradient-text {
+            background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        .contact-card {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        
+        .gradient-bg {
+            background: var(--primary-gradient);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .bubble {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .feed-item {
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .section-padding {
+            padding: 6rem 0;
+        }
+        
+        .comparison-table {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .store-filter {
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e5e5;
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full top-0 z-50">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-gray-800">
-                    <i class="fas fa-laptop-code text-indigo-600 mr-2"></i>The Digital Nomad
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 w-full z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center">
+                        <i class="fas fa-route text-white text-lg"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl gradient-text">The Digital Nomad</span>
                 </div>
+                
                 <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium">About</a>
-                    <a href="#services" class="text-gray-600 hover:text-indigo-600 font-medium">Services</a>
-                    <a href="#expertise" class="text-gray-600 hover:text-indigo-600 font-medium">Expertise</a>
-                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
+                    <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition">Home</a>
+                    <a href="#not-so-9to5" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition">Not So 9 to 5</a>
+                    <a href="#growth-marketing" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition">Growth Marketing</a>
+                    <a href="#store" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition">Store</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition">About</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition">Contact</a>
                 </div>
-                <a href="#contact" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition duration-300">
-                    Get Started
-                </a>
+                
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
-        </nav>
-    </header>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden bg-white border-t border-gray-200 hidden" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                <a href="#not-so-9to5" class="block text-gray-700 hover:text-purple-600 font-medium">Not So 9 to 5</a>
+                <a href="#growth-marketing" class="block text-gray-700 hover:text-purple-600 font-medium">Growth Marketing</a>
+                <a href="#store" class="block text-gray-700 hover:text-purple-600 font-medium">Store</a>
+                <a href="#about" class="block text-gray-700 hover:text-purple-600 font-medium">About</a>
+                <a href="#contact" class="block text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white pt-24 pb-16">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">
-                Transform Your Business with
-                <span class="text-yellow-300">AI-Powered Solutions</span>
+    <section id="home" class="min-h-screen flex items-center gradient-bg relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-32 h-32 bg-white opacity-10 rounded-full floating-animation"></div>
+            <div class="absolute top-40 right-32 w-24 h-24 bg-white opacity-10 rounded-full floating-animation" style="animation-delay: -2s;"></div>
+            <div class="absolute bottom-32 left-1/4 w-16 h-16 bg-white opacity-10 rounded-full floating-animation" style="animation-delay: -4s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <h1 class="font-display font-bold text-5xl md:text-7xl text-white mb-6">
+                Innovate Beyond
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-pink-300">
+                    The 9 to 5
+                </span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-                Azure-certified Data Engineer & Business Consultant delivering end-to-end digital transformation, 
-                campaign management, and event solutions that drive measurable results.
+            <p class="text-xl md:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                We're a team of high achievers, thinkers, and the curious - leveraging AI to create digital products that simplify complexity and drive unprecedented growth.
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4 mb-12">
-                <a href="#services" class="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
-                    <i class="fas fa-rocket mr-2"></i>Explore Services
-                </a>
-                <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition duration-300">
-                    <i class="fab fa-whatsapp mr-2"></i>WhatsApp: +44 7833815429
-                </a>
-            </div>
-            <div class="flex justify-center space-x-8 text-sm">
-                <div class="text-center">
-                    <div class="text-3xl font-bold">25%</div>
-                    <div>Conversion Boost</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold">35%</div>
-                    <div>Time Savings</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold">40%</div>
-                    <div>Process Improvement</div>
-                </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition pulse-glow">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Explore Our Products
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition">
+                    <i class="fas fa-play mr-2"></i>
+                    Watch Our Story
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
+    <!-- Not So 9 to 5 Section -->
+    <section id="not-so-9to5" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Aditya Sasmal</h2>
+                <h2 class="font-display font-bold text-4xl md:text-5xl gradient-text mb-6">Not So 9 to 5</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Microsoft 3x Certified Data Engineer with global consulting experience across UK, UAE, and India. 
-                    Specializing in transforming complex business challenges into streamlined, AI-powered solutions.
+                    Discover digital freedom through our innovative products, insights, and constantly evolving content that keeps you ahead of the curve.
                 </p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Professional Highlights</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <div>
-                                <strong>Azure Data Engineer</strong> - Microsoft Fabric Analytics Engineer (DP-600) & Azure Fundamentals (AZ-900) certified
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Main Content Area -->
+                <div class="lg:col-span-2 space-y-12">
+                    <!-- Digital Products Showcase -->
+                    <div>
+                        <h3 class="font-display font-bold text-3xl text-gray-800 mb-8">Small Digital Products</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="card-hover bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-2xl border border-gray-100">
+                                <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fas fa-brain text-white text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-xl text-gray-800 mb-3">AI Content Optimizer</h4>
+                                <p class="text-gray-600 mb-4">Leverage AI to optimize your content for maximum engagement and conversion across all digital platforms.</p>
+                                <button class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">
+                                    <i class="fas fa-arrow-right mr-2"></i>Discover
+                                </button>
                             </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <div>
-                                <strong>Global Experience</strong> - Led projects at Icon Resources, Delphi Consulting, BCG, and iNeuron.ai
+                            
+                            <div class="card-hover bg-gradient-to-br from-green-50 to-teal-50 p-6 rounded-2xl border border-gray-100">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fas fa-chart-line text-white text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-xl text-gray-800 mb-3">Growth Analytics Suite</h4>
+                                <p class="text-gray-600 mb-4">Comprehensive analytics dashboard that transforms complex data into actionable growth insights.</p>
+                                <button class="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition">
+                                    <i class="fas fa-arrow-right mr-2"></i>Get Yours
+                                </button>
                             </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <div>
-                                <strong>Education</strong> - MSc Computer Science (AI) from University of Nottingham, B.Tech IT from University of Mumbai
+                            
+                            <div class="card-hover bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-2xl border border-gray-100">
+                                <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fas fa-robot text-white text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-xl text-gray-800 mb-3">Automation Toolkit</h4>
+                                <p class="text-gray-600 mb-4">Streamline your workflow with AI-powered automation tools designed for digital nomads.</p>
+                                <button class="bg-red-600 text-white px-6 py-2 rounded-full hover:bg-red-700 transition">
+                                    <i class="fas fa-arrow-right mr-2"></i>Explore
+                                </button>
                             </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <div>
-                                <strong>Team Leadership</strong> - Successfully managed cross-functional teams up to 10 members
+                            
+                            <div class="card-hover bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-2xl border border-gray-100">
+                                <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fas fa-globe text-white text-xl"></i>
+                                </div>
+                                <h4 class="font-semibold text-xl text-gray-800 mb-3">Remote Team Manager</h4>
+                                <p class="text-gray-600 mb-4">Manage distributed teams effectively with our comprehensive remote collaboration platform.</p>
+                                <button class="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">
+                                    <i class="fas fa-arrow-right mr-2"></i>Discover
+                                </button>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Blog & Insights -->
+                    <div>
+                        <h3 class="font-display font-bold text-3xl text-gray-800 mb-8">Latest Insights</h3>
+                        <div class="space-y-6">
+                            <article class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-lightbulb text-purple-600 text-xl"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-xl text-gray-800 mb-2">The Future of AI in Small Business Growth</h4>
+                                        <p class="text-gray-600 mb-3">Exploring how artificial intelligence is democratizing growth opportunities for small businesses and solo entrepreneurs.</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <span>5 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>2 days ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-plane text-green-600 text-xl"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-xl text-gray-800 mb-2">Digital Nomad Visas: Complete 2024 Guide</h4>
+                                        <p class="text-gray-600 mb-3">Comprehensive analysis of new digital nomad visa programs and their impact on remote work opportunities.</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <span>8 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>1 week ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <article class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-coins text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-xl text-gray-800 mb-2">Cryptocurrency Trends Shaping Remote Work</h4>
+                                        <p class="text-gray-600 mb-3">How blockchain technology and crypto payments are revolutionizing the freelance economy.</p>
+                                        <div class="flex items-center text-sm text-gray-500">
+                                            <span>6 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>2 weeks ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Core Competencies</h3>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Python & SQL</div>
-                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Azure & Fabric</div>
-                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">AI/ML & GenAI</div>
-                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Power BI</div>
-                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Data Pipelines</div>
-                        <div class="skill-badge text-white p-3 rounded-lg text-center font-medium">Business Analytics</div>
+                
+                <!-- Nomad Feeds Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24">
+                        <h3 class="font-display font-bold text-2xl text-gray-800 mb-6">Nomad Feeds</h3>
+                        <div class="space-y-4" id="nomad-feeds">
+                            <!-- AI & Emerging Tech -->
+                            <div class="feed-item bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl border-l-4 border-purple-500">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-microchip text-purple-600 mr-2"></i>
+                                    <span class="text-xs font-semibold text-purple-600 uppercase">AI & Tech</span>
+                                </div>
+                                <h4 class="font-semibold text-sm text-gray-800 mb-1">OpenAI Releases GPT-5 Beta</h4>
+                                <p class="text-xs text-gray-600">Revolutionary capabilities in multimodal AI processing.</p>
+                            </div>
+                            
+                            <!-- Digital Finance -->
+                            <div class="feed-item bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl border-l-4 border-green-500">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-chart-line text-green-600 mr-2"></i>
+                                    <span class="text-xs font-semibold text-green-600 uppercase">Digital Finance</span>
+                                </div>
+                                <h4 class="font-semibold text-sm text-gray-800 mb-1">Bitcoin Hits New All-Time High</h4>
+                                <p class="text-xs text-gray-600">Institutional adoption drives unprecedented growth.</p>
+                            </div>
+                            
+                            <!-- Industry Watch -->
+                            <div class="feed-item bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl border-l-4 border-blue-500">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-building text-blue-600 mr-2"></i>
+                                    <span class="text-xs font-semibold text-blue-600 uppercase">Industry Watch</span>
+                                </div>
+                                <h4 class="font-semibold text-sm text-gray-800 mb-1">Meta Acquires AI Startup</h4>
+                                <p class="text-xs text-gray-600">$2.5B deal focuses on advanced language models.</p>
+                            </div>
+                            
+                            <!-- Global Opportunities -->
+                            <div class="feed-item bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-xl border-l-4 border-orange-500">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-globe text-orange-600 mr-2"></i>
+                                    <span class="text-xs font-semibold text-orange-600 uppercase">Global Ops</span>
+                                </div>
+                                <h4 class="font-semibold text-sm text-gray-800 mb-1">Portugal Extends Digital Nomad Program</h4>
+                                <p class="text-xs text-gray-600">New benefits for remote workers and entrepreneurs.</p>
+                            </div>
+                            
+                            <!-- More feeds will be dynamically added -->
+                        </div>
+                        
+                        <button class="w-full mt-6 text-center text-purple-600 hover:text-purple-800 font-medium text-sm">
+                            <i class="fas fa-sync-alt mr-2"></i>Load More Updates
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
+    <!-- Growth Marketing Section -->
+    <section id="growth-marketing" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
-                <p class="text-xl text-gray-600">Comprehensive solutions to elevate your business performance</p>
+                <h2 class="font-display font-bold text-4xl md:text-5xl gradient-text mb-6">Growth Marketing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Empowering small-scale industries to achieve exponential growth through data-driven strategies and AI-powered optimization.
+                </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Business Consulting -->
-                <div class="service-card p-8 rounded-xl border">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-chart-line text-2xl text-indigo-600"></i>
+            
+            <!-- Value Proposition -->
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-lg mb-16">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="font-display font-bold text-3xl text-gray-800 mb-6">Your Growth, Our Mission</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            We don't just deliver marketing services – we become your growth partners. Our results-oriented approach combines deep market understanding with cutting-edge AI technology to drive measurable, sustainable growth for small businesses and emerging brands.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold gradient-text mb-2">400%</div>
+                                <div class="text-sm text-gray-600">Average Growth Increase</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold gradient-text mb-2">89%</div>
+                                <div class="text-sm text-gray-600">Client Retention Rate</div>
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Business Consulting</h3>
                     </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
-                            <span>Data-driven strategy development & competitive analysis</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
-                            <span>AI/ML implementation for business optimization</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
-                            <span>Digital transformation & automation solutions</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
-                            <span>Power BI dashboards & analytics setup</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-indigo-600 mt-1 mr-3"></i>
-                            <span>Process automation & workflow optimization</span>
-                        </li>
-                    </ul>
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <p class="text-green-800 font-semibold">Proven Results: 25% conversion boost, 35% efficiency improvement</p>
-                    </div>
-                </div>
-
-                <!-- Physical & Social Campaigns -->
-                <div class="service-card p-8 rounded-xl border">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-bullhorn text-2xl text-purple-600"></i>
+                    <div class="relative">
+                        <div class="aspect-square bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-rocket text-6xl text-purple-600 mb-4"></i>
+                                <p class="text-lg font-semibold text-gray-800">Growth Accelerated</p>
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Campaign Management</h3>
                     </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
-                            <span>Creative campaign ideation & strategy</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
-                            <span>Professional PDF design & flyer creation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
-                            <span>Social media campaign development</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
-                            <span>Ad design & visual content creation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-purple-600 mt-1 mr-3"></i>
-                            <span>Performance tracking & analytics</span>
-                        </li>
-                    </ul>
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <p class="text-blue-800 font-semibold">Creative Solutions: Custom designs, targeted messaging, measurable impact</p>
-                    </div>
-                </div>
-
-                <!-- Event Management -->
-                <div class="service-card p-8 rounded-xl border">
-                    <div class="text-center mb-6">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-calendar-alt text-2xl text-green-600"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800">Event Management</h3>
-                    </div>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
-                            <span>End-to-end event planning & coordination</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
-                            <span>Corporate event design & execution</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
-                            <span>Digital event solutions & automation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
-                            <span>Stakeholder management & communication</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-green-600 mt-1 mr-3"></i>
-                            <span>Post-event analysis & reporting</span>
-                        </li>
-                    </ul>
-                    <div class="bg-yellow-50 p-4 rounded-lg">
-                        <p class="text-yellow-800 font-semibold">Seamless Execution: Large-scale event delivery, team coordination expertise</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expertise Section -->
-    <section id="expertise" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Technical Expertise</h2>
-                <p class="text-xl text-gray-600">Cutting-edge technologies and proven methodologies</p>
-            </div>
-            <div class="grid md:grid-cols-4 gap-6 mb-12">
-                <div class="text-center p-6 bg-gray-50 rounded-xl">
-                    <i class="fas fa-brain text-3xl text-indigo-600 mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">AI & Machine Learning</h3>
-                    <p class="text-gray-600">GenAI, Deep Learning, NLP, Predictive Analytics</p>
-                </div>
-                <div class="text-center p-6 bg-gray-50 rounded-xl">
-                    <i class="fas fa-cloud text-3xl text-blue-600 mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Cloud Platforms</h3>
-                    <p class="text-gray-600">Azure, Databricks, Fabric, Synapse Analytics</p>
-                </div>
-                <div class="text-center p-6 bg-gray-50 rounded-xl">
-                    <i class="fas fa-chart-bar text-3xl text-green-600 mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Analytics & BI</h3>
-                    <p class="text-gray-600">Power BI, Tableau, Data Visualization, KPIs</p>
-                </div>
-                <div class="text-center p-6 bg-gray-50 rounded-xl">
-                    <i class="fas fa-cogs text-3xl text-purple-600 mb-4"></i>
-                    <h3 class="font-bold text-lg mb-2">Automation</h3>
-                    <p class="text-gray-600">Process Automation, n8n, Workflow Optimization</p>
                 </div>
             </div>
             
-            <!-- Achievements -->
-            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-xl">
-                <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">Proven Track Record</h3>
-                <div class="grid md:grid-cols-4 gap-6 text-center">
-                    <div>
-                        <div class="achievement-number text-4xl font-bold mb-2">25%</div>
-                        <p class="text-gray-700">Data Latency Reduction & Conversion Boost</p>
+            <!-- Service Offerings -->
+            <div class="mb-16">
+                <h3 class="font-display font-bold text-3xl text-center text-gray-800 mb-12">Comprehensive Service Offerings</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-chess text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">Digital Strategy & Consulting</h4>
+                        <p class="text-gray-600 mb-4">Comprehensive digital transformation roadmaps tailored to your business objectives and market dynamics.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Market Analysis & Competitive Intelligence</li>
+                            <li>• Digital Maturity Assessment</li>
+                            <li>• Growth Strategy Development</li>
+                        </ul>
                     </div>
-                    <div>
-                        <div class="achievement-number text-4xl font-bold mb-2">35%</div>
-                        <p class="text-gray-700">Documentation Time Savings through AI</p>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-search text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">SEO & AI-Driven Content</h4>
+                        <p class="text-gray-600 mb-4">Advanced SEO strategies powered by AI for content optimization and enhanced search visibility.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• AI Content Generation & Optimization</li>
+                            <li>• Technical SEO Audits</li>
+                            <li>• Local SEO & Voice Search</li>
+                        </ul>
                     </div>
-                    <div>
-                        <div class="achievement-number text-4xl font-bold mb-2">40%</div>
-                        <p class="text-gray-700">Recruitment Cycle Time Reduction</p>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100">
+                        <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-bullhorn text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">Performance Marketing</h4>
+                        <p class="text-gray-600 mb-4">Data-driven paid advertising campaigns across PPC, social media, and influencer partnerships.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Google Ads & Facebook Advertising</li>
+                            <li>• Influencer Marketing Campaigns</li>
+                            <li>• Programmatic Advertising</li>
+                        </ul>
                     </div>
-                    <div>
-                        <div class="achievement-number text-4xl font-bold mb-2">15%</div>
-                        <p class="text-gray-700">Revenue Increase & Attrition Reduction</p>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100">
+                        <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-cogs text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">Marketing Automation</h4>
+                        <p class="text-gray-600 mb-4">Intelligent automation systems that nurture leads and optimize customer journey touchpoints.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• CRM Integration & Management</li>
+                            <li>• Email Marketing Automation</li>
+                            <li>• Lead Scoring & Nurturing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100">
+                        <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-percentage text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">Conversion Rate Optimization</h4>
+                        <p class="text-gray-600 mb-4">Scientific approach to improving conversion rates through A/B testing and user experience optimization.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• A/B Testing & Experimentation</li>
+                            <li>• User Experience Audits</li>
+                            <li>• Landing Page Optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-chart-bar text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">Advanced Analytics & ROI</h4>
+                        <p class="text-gray-600 mb-4">Comprehensive analytics dashboards that translate complex data into actionable growth insights.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Custom Analytics Dashboards</li>
+                            <li>• ROI Tracking & Attribution</li>
+                            <li>• Predictive Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Studies -->
+            <div>
+                <h3 class="font-display font-bold text-3xl text-center text-gray-800 mb-12">Success Stories</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm font-semibold text-purple-600 uppercase">E-commerce</div>
+                            <div class="text-2xl font-bold gradient-text">+325%</div>
+                        </div>
+                        <h4 class="font-semibold text-lg text-gray-800 mb-3">Fashion Startup Growth</h4>
+                        <p class="text-gray-600 text-sm mb-4">Transformed a small fashion brand into a six-figure business through integrated digital marketing and automation.</p>
+                        <div class="grid grid-cols-3 gap-4 text-center text-xs">
+                            <div>
+                                <div class="font-semibold text-gray-800">Revenue</div>
+                                <div class="text-green-600">+325%</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">Traffic</div>
+                                <div class="text-blue-600">+180%</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">Conversion</div>
+                                <div class="text-purple-600">+67%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm font-semibold text-green-600 uppercase">SaaS</div>
+                            <div class="text-2xl font-bold gradient-text">+450%</div>
+                        </div>
+                        <h4 class="font-semibold text-lg text-gray-800 mb-3">SaaS Lead Generation</h4>
+                        <p class="text-gray-600 text-sm mb-4">Revolutionized lead generation for a B2B SaaS platform through AI-powered content and automation.</p>
+                        <div class="grid grid-cols-3 gap-4 text-center text-xs">
+                            <div>
+                                <div class="font-semibold text-gray-800">Leads</div>
+                                <div class="text-green-600">+450%</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">MQLs</div>
+                                <div class="text-blue-600">+220%</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">Close Rate</div>
+                                <div class="text-purple-600">+35%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm font-semibold text-blue-600 uppercase">Local Business</div>
+                            <div class="text-2xl font-bold gradient-text">+280%</div>
+                        </div>
+                        <h4 class="font-semibold text-lg text-gray-800 mb-3">Restaurant Chain Expansion</h4>
+                        <p class="text-gray-600 text-sm mb-4">Scaled a local restaurant to multiple locations through targeted local SEO and social media marketing.</p>
+                        <div class="grid grid-cols-3 gap-4 text-center text-xs">
+                            <div>
+                                <div class="font-semibold text-gray-800">Locations</div>
+                                <div class="text-green-600">3→12</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">Online Orders</div>
+                                <div class="text-blue-600">+280%</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-gray-800">Revenue</div>
+                                <div class="text-purple-600">+195%</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
+    <!-- The Digital Nomad Store Section -->
+    <section id="store" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
-                <p class="text-xl text-gray-600">Ready to transform your business? Let's discuss your project.</p>
+                <h2 class="font-display font-bold text-4xl md:text-5xl gradient-text mb-6">The Digital Nomad Store</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Your one-stop marketplace for digital tools, creator resources, and nomad-friendly products curated for the modern remote lifestyle.
+                </p>
             </div>
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="contact-card p-8 rounded-xl text-white">
-                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fab fa-whatsapp text-2xl text-green-400 mr-4"></i>
-                                <div>
-                                    <p class="font-semibold">WhatsApp</p>
-                                    <p>+44 7833815429</p>
-                                </div>
+            
+            <!-- Store Navigation & Filters -->
+            <div class="store-filter mb-12">
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button class="store-filter-btn bg-purple-600 text-white px-6 py-3 rounded-full font-medium hover:bg-purple-700 transition">
+                        <i class="fas fa-fire mr-2"></i>Trending
+                    </button>
+                    <button class="store-filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition">
+                        <i class="fas fa-laptop mr-2"></i>Digital Tools
+                    </button>
+                    <button class="store-filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition">
+                        <i class="fas fa-suitcase mr-2"></i>Travel Gear
+                    </button>
+                    <button class="store-filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition">
+                        <i class="fas fa-star mr-2"></i>Creator Tools
+                    </button>
+                    <button class="store-filter-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition">
+                        <i class="fas fa-home mr-2"></i>Workspace
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Top Trending Niches -->
+            <div class="mb-16">
+                <h3 class="font-display font-bold text-3xl text-gray-800 mb-8">Top 10 Trending Niches</h3>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-purple-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-brain text-3xl text-purple-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">AI Tools</h4>
+                        <p class="text-xs text-gray-600">1,247 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-green-50 to-teal-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-video text-3xl text-green-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Content Creation</h4>
+                        <p class="text-xs text-gray-600">892 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-orange-50 to-red-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-chart-line text-3xl text-orange-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Analytics</h4>
+                        <p class="text-xs text-gray-600">567 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-indigo-50 to-blue-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-headphones text-3xl text-indigo-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Audio Gear</h4>
+                        <p class="text-xs text-gray-600">423 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-pink-50 to-purple-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-wifi text-3xl text-pink-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Connectivity</h4>
+                        <p class="text-xs text-gray-600">334 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-yellow-50 to-orange-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-chair text-3xl text-yellow-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Ergonomics</h4>
+                        <p class="text-xs text-gray-600">298 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-teal-50 to-green-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-shield-alt text-3xl text-teal-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Security</h4>
+                        <p class="text-xs text-gray-600">245 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-red-50 to-pink-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-plane text-3xl text-red-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Travel Tech</h4>
+                        <p class="text-xs text-gray-600">189 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-purple-50 to-indigo-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-book text-3xl text-purple-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Learning</h4>
+                        <p class="text-xs text-gray-600">156 products</p>
+                    </div>
+                    <div class="card-hover bg-gradient-to-br from-gray-50 to-blue-50 p-4 rounded-xl border border-gray-100 text-center cursor-pointer">
+                        <i class="fas fa-heart text-3xl text-gray-600 mb-3"></i>
+                        <h4 class="font-semibold text-gray-800 text-sm">Wellness</h4>
+                        <p class="text-xs text-gray-600">134 products</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Products -->
+            <div class="mb-16">
+                <h3 class="font-display font-bold text-3xl text-gray-800 mb-8">Featured Products</h3>
+                <div class="product-grid">
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-magic text-4xl text-blue-600"></i>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold text-lg text-gray-800">AI Writing Assistant Pro</h4>
+                            <div class="text-right">
+                                <div class="text-lg font-bold text-gray-800">$49</div>
+                                <div class="text-xs text-gray-500 line-through">$99</div>
                             </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">Advanced AI-powered writing tool for content creators and marketers.</p>
+                        <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <i class="fas fa-envelope text-2xl text-blue-400 mr-4"></i>
-                                <div>
-                                    <p class="font-semibold">Email</p>
-                                    <p>aditya.k.sasmal@gmail.com</p>
+                                <div class="flex text-yellow-400 text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
+                                <span class="text-xs text-gray-500 ml-1">(4.9)</span>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-2xl text-red-400 mr-4"></i>
-                                <div>
-                                    <p class="font-semibold">Location</p>
-                                    <p>London, United Kingdom</p>
-                                </div>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-green-100 to-teal-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-laptop text-4xl text-green-600"></i>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold text-lg text-gray-800">Portable Laptop Stand</h4>
+                            <div class="text-right">
+                                <div class="text-lg font-bold text-gray-800">$89</div>
                             </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">Ultra-lightweight, adjustable laptop stand perfect for nomads.</p>
+                        <div class="flex items-center justify-between">
                             <div class="flex items-center">
-                                <i class="fab fa-linkedin text-2xl text-blue-400 mr-4"></i>
-                                <div>
-                                    <p class="font-semibold">LinkedIn</p>
-                                    <p>linkedin.com/in/aditya-sasmal</p>
+                                <div class="flex text-yellow-400 text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
                                 </div>
+                                <span class="text-xs text-gray-500 ml-1">(4.6)</span>
+                            </div>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-orange-100 to-red-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-microphone text-4xl text-orange-600"></i>
+                        </div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold text-lg text-gray-800">USB Studio Microphone</h4>
+                            <div class="text-right">
+                                <div class="text-lg font-bold text-gray-800">$129</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">Professional-grade USB microphone for podcasters and content creators.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="flex text-yellow-400 text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500 ml-1">(4.8)</span>
+                            </div>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Comparison Tool -->
+            <div class="bg-gray-50 p-8 rounded-3xl mb-16">
+                <h3 class="font-display font-bold text-3xl text-gray-800 mb-6 text-center">Product Comparison Tool</h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="comparison-table bg-white rounded-2xl overflow-hidden border border-gray-100">
+                        <div class="grid grid-cols-4 bg-gray-50 p-4 font-semibold text-gray-800 border-b border-gray-100">
+                            <div>Feature</div>
+                            <div class="text-center">AI Writer Pro</div>
+                            <div class="text-center">Content Master</div>
+                            <div class="text-center">Write Genius</div>
+                        </div>
+                        <div class="grid grid-cols-4 p-4 border-b border-gray-50">
+                            <div class="font-medium text-gray-700">Price</div>
+                            <div class="text-center text-green-600 font-semibold">$49</div>
+                            <div class="text-center text-gray-600">$79</div>
+                            <div class="text-center text-gray-600">$99</div>
+                        </div>
+                        <div class="grid grid-cols-4 p-4 border-b border-gray-50">
+                            <div class="font-medium text-gray-700">AI Models</div>
+                            <div class="text-center"><i class="fas fa-check text-green-600"></i></div>
+                            <div class="text-center"><i class="fas fa-check text-green-600"></i></div>
+                            <div class="text-center"><i class="fas fa-times text-red-500"></i></div>
+                        </div>
+                        <div class="grid grid-cols-4 p-4 border-b border-gray-50">
+                            <div class="font-medium text-gray-700">Templates</div>
+                            <div class="text-center">50+</div>
+                            <div class="text-center">30+</div>
+                            <div class="text-center">100+</div>
+                        </div>
+                        <div class="grid grid-cols-4 p-4">
+                            <div class="font-medium text-gray-700">Support</div>
+                            <div class="text-center">24/7</div>
+                            <div class="text-center">Business Hours</div>
+                            <div class="text-center">24/7</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Creator Spotlight -->
+            <div>
+                <h3 class="font-display font-bold text-3xl text-gray-800 mb-8">Creator Spotlight</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800">Sarah Digital</h4>
+                                <p class="text-sm text-gray-600">AI Content Strategist</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Helping businesses scale with AI-powered content strategies. Featured on TopMate with 500+ successful consultations.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>4.9 (127 reviews)
+                            </div>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-100 to-teal-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800">Mark Nomad</h4>
+                                <p class="text-sm text-gray-600">Growth Marketing Expert</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Specialized in scaling startups through performance marketing. Available for 1:1 mentoring on TopMate platform.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>4.8 (89 reviews)
+                            </div>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800">Lisa Tech</h4>
+                                <p class="text-sm text-gray-600">Product Manager</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Former Google PM now helping startups build better products. Book consultations through TopMate integration.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <i class="fas fa-star text-yellow-400 mr-1"></i>5.0 (43 reviews)
+                            </div>
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm hover:bg-purple-700 transition">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl gradient-text mb-6">About Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Meet the team of high achievers, thinkers, and curious minds behind The Digital Nomad - driven by AI innovation and relentless pursuit of excellence.
+                </p>
+            </div>
+            
+            <!-- Philosophy & Vision -->
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-lg mb-16">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="font-display font-bold text-3xl text-gray-800 mb-6">Our Philosophy</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            We are a collective of high achievers, thinkers, and the endlessly curious. Our core philosophy centers on simplifying complexity through innovation, particularly harnessing the transformative power of Artificial Intelligence to make everything easier, more efficient, and more impactful.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-6">
+                            At The Digital Nomad, we don't just adapt to change – we anticipate it, shape it, and use it as a catalyst for unprecedented growth. Our curiosity drives us to explore uncharted territories in digital innovation, while our commitment to excellence ensures every solution we deliver exceeds expectations.
+                        </p>
+                        <div class="flex items-center space-x-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text mb-1">AI-First</div>
+                                <div class="text-sm text-gray-600">Approach</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text mb-1">Innovation</div>
+                                <div class="text-sm text-gray-600">Driven</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text mb-1">Results</div>
+                                <div class="text-sm text-gray-600">Focused</div>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-8 rounded-xl">
-                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Why Choose The Digital Nomad?</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
-                                <div>
-                                    <strong>Microsoft Certified Professional</strong>
-                                    <p class="text-gray-600">DP-600 & AZ-900 certified with proven Azure expertise</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
-                                <div>
-                                    <strong>Global Experience</strong>
-                                    <p class="text-gray-600">Worked with clients across UK, UAE, and India</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
-                                <div>
-                                    <strong>Measurable Results</strong>
-                                    <p class="text-gray-600">Consistently delivered 25-40% performance improvements</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <i class="fas fa-star text-yellow-500 mt-1 mr-3"></i>
-                                <div>
-                                    <strong>End-to-End Solutions</strong>
-                                    <p class="text-gray-600">From strategy to implementation and ongoing support</p>
-                                </div>
+                    <div class="relative">
+                        <div class="aspect-square bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-lightbulb text-6xl text-purple-600 mb-4"></i>
+                                <p class="text-lg font-semibold text-gray-800">Innovation & Curiosity</p>
+                                <p class="text-sm text-gray-600 mt-2">Driving Digital Transformation</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="text-center mt-12">
-                    <div class="flex flex-col md:flex-row justify-center gap-4">
-                        <a href="https://wa.me/447833815429" target="_blank" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300">
-                            <i class="fab fa-whatsapp mr-2"></i>Message on WhatsApp
-                        </a>
-                        <a href="mailto:aditya.k.sasmal@gmail.com" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300">
-                            <i class="fas fa-envelope mr-2"></i>Send Email
-                        </a>
+            </div>
+            
+            <!-- AI Approach -->
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-8 md:p-12 mb-16">
+                <div class="text-center mb-8">
+                    <h3 class="font-display font-bold text-3xl text-gray-800 mb-4">Our AI-Centric Approach</h3>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Artificial Intelligence isn't just a tool for us – it's the foundation of our thinking, the core of our processes, and the lens through which we view every challenge and opportunity.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-brain text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">AI-Powered Solutions</h4>
+                        <p class="text-gray-600">Every product and service we develop leverages AI to automate, optimize, and accelerate business growth.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-cogs text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">Process Innovation</h4>
+                        <p class="text-gray-600">We continuously explore how AI can streamline workflows and eliminate inefficiencies across all operations.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-3">Future-Ready Thinking</h4>
+                        <p class="text-gray-600">Our curiosity about emerging AI technologies keeps us at the forefront of digital innovation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Members -->
+            <div class="mb-16">
+                <h3 class="font-display font-bold text-3xl text-center text-gray-800 mb-12">Meet Our High Achievers</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                        <div class="w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-tie text-purple-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-2">Alex Chen</h4>
+                        <p class="text-purple-600 font-medium mb-3">CEO & AI Strategist</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Former Google AI researcher with an insatiable curiosity for pushing the boundaries of what's possible with machine learning and business growth.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-brain mr-1"></i>AI Innovation Expert
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                        <div class="w-24 h-24 bg-gradient-to-br from-green-100 to-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-cog text-green-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-2">Maria Rodriguez</h4>
+                        <p class="text-green-600 font-medium mb-3">CTO & Product Architect</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            High-achieving technologist with a curious mind for scaling digital products. Previously built unicorn-level platforms at three different startups.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-code mr-1"></i>Product Innovation Leader
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-chart text-blue-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-2">David Park</h4>
+                        <p class="text-blue-600 font-medium mb-3">Head of Growth Marketing</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Curious growth hacker who achieved 10x growth for multiple B2B SaaS companies. Always exploring the intersection of AI and marketing automation.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-chart-line mr-1"></i>Growth Optimization Specialist
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                        <div class="w-24 h-24 bg-gradient-to-br from-orange-100 to-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-edit text-orange-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-2">Sophie Williams</h4>
+                        <p class="text-orange-600 font-medium mb-3">Creative Director & UX Lead</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Award-winning designer with a curious approach to human-AI interaction. Passionate about creating intuitive experiences that bridge complexity and simplicity.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-palette mr-1"></i>Experience Design Innovator
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                        <div class="w-24 h-24 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-shield text-indigo-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-2">James Thompson</h4>
+                        <p class="text-indigo-600 font-medium mb-3">Data Scientist & Analytics Lead</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            High-achieving data scientist with endless curiosity about predictive analytics. Turns complex data into crystal-clear growth insights for our clients.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-database mr-1"></i>Data Intelligence Expert
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+                        <div class="w-24 h-24 bg-gradient-to-br from-pink-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-friends text-pink-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-xl text-gray-800 mb-2">Emma Davis</h4>
+                        <p class="text-pink-600 font-medium mb-3">Client Success & Strategy</p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Results-driven strategist with a curious mind for understanding client needs. Achieved 95% client retention through innovative success frameworks.
+                        </p>
+                        <div class="text-xs text-gray-500">
+                            <i class="fas fa-handshake mr-1"></i>Client Success Champion
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Journey & Values -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 class="font-display font-bold text-2xl text-gray-800 mb-6">Our Journey</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-flag text-purple-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">2020 - Founded</h4>
+                                <p class="text-gray-600 text-sm">Started as a curious exploration into AI-powered business solutions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-users text-green-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">2021 - First 100 Clients</h4>
+                                <p class="text-gray-600 text-sm">Achieved remarkable growth helping small businesses scale with AI</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-award text-blue-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">2022 - Industry Recognition</h4>
+                                <p class="text-gray-600 text-sm">Won "AI Innovation in Marketing" award from TechCrunch</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-rocket text-orange-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">2023 - Global Expansion</h4>
+                                <p class="text-gray-600 text-sm">Launched digital nomad store and global remote services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 class="font-display font-bold text-2xl text-gray-800 mb-6">Our Values</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-lightbulb text-purple-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Continuous Innovation</h4>
+                                <p class="text-gray-600 text-sm">Never settling for "good enough" - always pushing boundaries</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-heart text-green-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Client-Centricity</h4>
+                                <p class="text-gray-600 text-sm">Your success is our success - we measure ourselves by your growth</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-graduation-cap text-blue-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Lifelong Learning</h4>
+                                <p class="text-gray-600 text-sm">Curiosity drives us to constantly evolve and improve</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-balance-scale text-orange-600 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Simplifying Complexity</h4>
+                                <p class="text-gray-600 text-sm">Making the complex simple and the impossible achievable</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl gradient-text mb-6">Contact Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ready to transform your business? Connect with The Digital Nomad and let's turn your challenges into growth opportunities.
+                </p>
+            </div>
+            
+            <!-- Opportunity Bubbles -->
+            <div class="mb-16">
+                <h3 class="font-display font-bold text-3xl text-center text-gray-800 mb-8">What Brings You Here?</h3>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                        <div class="bubble bg-gradient-to-br from-purple-100 to-pink-100 p-6 rounded-2xl text-center border-2 border-transparent hover:border-purple-300">
+                            <i class="fas fa-user-plus text-3xl text-purple-600 mb-3"></i>
+                            <h4 class="font-semibold text-gray-800 text-sm">Looking for generating leads?</h4>
+                        </div>
+                        
+                        <div class="bubble bg-gradient-to-br from-blue-100 to-indigo-100 p-6 rounded-2xl text-center border-2 border-transparent hover:border-blue-300">
+                            <i class="fas fa-globe text-3xl text-blue-600 mb-3"></i>
+                            <h4 class="font-semibold text-gray-800 text-sm">Establishing digital presence?</h4>
+                        </div>
+                        
+                        <div class="bubble bg-gradient-to-br from-green-100 to-teal-100 p-6 rounded-2xl text-center border-2 border-transparent hover:border-green-300">
+                            <i class="fas fa-sitemap text-3xl text-green-600 mb-3"></i>
+                            <h4 class="font-semibold text-gray-800 text-sm">Business restructuring?</h4>
+                        </div>
+                        
+                        <div class="bubble bg-gradient-to-br from-orange-100 to-red-100 p-6 rounded-2xl text-center border-2 border-transparent hover:border-orange-300">
+                            <i class="fas fa-sync-alt text-3xl text-orange-600 mb-3"></i>
+                            <h4 class="font-semibold text-gray-800 text-sm">Constant flow of customers?</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-8 rounded-3xl text-white mb-8">
+                            <h3 class="font-display font-bold text-2xl mb-4">Ready to Solve These Challenges?</h3>
+                            <p class="text-lg mb-6">If you're seeking to solve these challenges or achieve these outcomes, connect with The Digital Nomad today.</p>
+                            <button class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition pulse-glow">
+                                <i class="fas fa-rocket mr-2"></i>Let's Start Your Transformation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Options -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-50 p-8 rounded-3xl">
+                    <h3 class="font-display font-bold text-2xl text-gray-800 mb-6">Get In Touch</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                                <option>Growth Marketing Consultation</option>
+                                <option>Digital Product Development</option>
+                                <option>AI Strategy & Implementation</option>
+                                <option>Store Partnership</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea rows="5" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition" placeholder="Tell us about your goals and challenges..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full gradient-bg text-white py-4 rounded-xl font-semibold hover:opacity-90 transition">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-display font-bold text-2xl text-gray-800 mb-6">Let's Connect</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-purple-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Email Us</h4>
+                                    <p class="text-gray-600">hello@thedigitalnomad.co</p>
+                                    <p class="text-gray-600">partnerships@thedigitalnomad.co</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-green-100 to-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-green-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Call Us</h4>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    <p class="text-sm text-gray-500">Mon-Fri, 9AM-6PM EST</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-blue-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-1">Visit Us</h4>
+                                    <p class="text-gray-600">123 Innovation Drive</p>
+                                    <p class="text-gray-600">San Francisco, CA 94103</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div>
+                        <h4 class="font-semibold text-lg text-gray-800 mb-4">Follow Our Journey</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white hover:transform hover:scale-110 transition">
+                                <i class="fab fa-linkedin text-lg"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center text-white hover:transform hover:scale-110 transition">
+                                <i class="fab fa-x-twitter text-lg"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white hover:transform hover:scale-110 transition">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center text-white hover:transform hover:scale-110 transition">
+                                <i class="fab fa-youtube text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Response Time -->
+                    <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-2xl border-l-4 border-green-500">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-clock text-green-600 mr-2"></i>
+                            <span class="font-semibold text-green-800">Quick Response Guarantee</span>
+                        </div>
+                        <p class="text-sm text-green-700">We respond to all inquiries within 2 hours during business hours, and within 24 hours on weekends.</p>
                     </div>
                 </div>
             </div>
@@ -410,32 +1274,78 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="mb-4">
-                <h3 class="text-2xl font-bold mb-2">
-                    <i class="fas fa-laptop-code text-indigo-400 mr-2"></i>The Digital Nomad
-                </h3>
-                <p class="text-gray-400">Transforming businesses through AI-powered solutions and strategic consulting</p>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 gradient-bg rounded-full flex items-center justify-center">
+                            <i class="fas fa-route text-white text-sm"></i>
+                        </div>
+                        <span class="font-display font-bold text-xl">The Digital Nomad</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Empowering businesses through AI-driven innovation and digital transformation.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 transition">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 transition">
+                            <i class="fab fa-x-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-purple-600 transition">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Growth Marketing</a></li>
+                        <li><a href="#" class="hover:text-white transition">AI Consulting</a></li>
+                        <li><a href="#" class="hover:text-white transition">Digital Products</a></li>
+                        <li><a href="#" class="hover:text-white transition">Content Strategy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-white transition">Nomad Feeds</a></li>
+                        <li><a href="#" class="hover:text-white transition">Store</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://linkedin.com/in/aditya-sasmal" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fab fa-linkedin text-2xl"></i>
-                </a>
-                <a href="https://linktr.ee/Aditya_sasmal" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fas fa-link text-2xl"></i>
-                </a>
-                <a href="mailto:aditya.k.sasmal@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
-                    <i class="fas fa-envelope text-2xl"></i>
-                </a>
-            </div>
-            <div class="border-t border-gray-700 pt-4">
-                <p class="text-gray-400">&copy; 2024 The Digital Nomad. All rights reserved. | Aditya Sasmal - Azure Data Engineer & Business Consultant</p>
+            
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 The Digital Nomad. All rights reserved. Built with curiosity and powered by AI.
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -449,18 +1359,150 @@
                 }
             });
         });
-
-        // Add scroll effect to header
+        
+        // Dynamic feed updates
+        function addFeedItem() {
+            const feeds = [
+                {
+                    category: 'AI & Tech',
+                    title: 'Meta Launches New VR Platform',
+                    description: 'Revolutionary virtual workspace for remote teams.',
+                    color: 'purple',
+                    icon: 'microchip'
+                },
+                {
+                    category: 'Digital Finance',
+                    title: 'Ethereum 2.0 Upgrade Complete',
+                    description: 'New staking rewards program launches globally.',
+                    color: 'green',
+                    icon: 'chart-line'
+                },
+                {
+                    category: 'Industry Watch',
+                    title: 'Adobe Acquires AI Startup',
+                    description: '$1.8B deal enhances creative AI capabilities.',
+                    color: 'blue',
+                    icon: 'building'
+                },
+                {
+                    category: 'Global Ops',
+                    title: 'Estonia Launches E-Residency 2.0',
+                    description: 'Enhanced digital nomad benefits announced.',
+                    color: 'orange',
+                    icon: 'globe'
+                }
+            ];
+            
+            const randomFeed = feeds[Math.floor(Math.random() * feeds.length)];
+            const feedContainer = document.getElementById('nomad-feeds');
+            
+            const feedItem = document.createElement('div');
+            feedItem.className = `feed-item bg-gradient-to-r from-${randomFeed.color}-50 to-${randomFeed.color}-50 p-4 rounded-xl border-l-4 border-${randomFeed.color}-500`;
+            feedItem.innerHTML = `
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-${randomFeed.icon} text-${randomFeed.color}-600 mr-2"></i>
+                    <span class="text-xs font-semibold text-${randomFeed.color}-600 uppercase">${randomFeed.category}</span>
+                </div>
+                <h4 class="font-semibold text-sm text-gray-800 mb-1">${randomFeed.title}</h4>
+                <p class="text-xs text-gray-600">${randomFeed.description}</p>
+            `;
+            
+            feedContainer.insertBefore(feedItem, feedContainer.firstChild);
+            
+            // Remove oldest item if more than 8 items
+            const items = feedContainer.querySelectorAll('.feed-item');
+            if (items.length > 8) {
+                feedContainer.removeChild(items[items.length - 1]);
+            }
+        }
+        
+        // Add new feed item every 10 seconds
+        setInterval(addFeedItem, 10000);
+        
+        // Store filter functionality
+        document.querySelectorAll('.store-filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.store-filter-btn').forEach(b => {
+                    b.classList.remove('bg-purple-600', 'text-white');
+                    b.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                
+                // Add active class to clicked button
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                this.classList.add('bg-purple-600', 'text-white');
+            });
+        });
+        
+        // Bubble hover effects
+        document.querySelectorAll('.bubble').forEach(bubble => {
+            bubble.addEventListener('mouseenter', function() {
+                // Show tooltip or additional info
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            bubble.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Navbar background on scroll
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backdropFilter = 'blur(10px)';
             } else {
-                header.style.backgroundColor = 'white';
-                header.style.backdropFilter = 'none';
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             }
         });
+        
+        // Form submission (placeholder)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you within 2 hours.');
+        });
+        
+        // Initialize animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all card elements
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // Particle effect for hero section (simple)
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'absolute w-2 h-2 bg-white opacity-20 rounded-full';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animation = 'float 8s linear infinite';
+            
+            document.querySelector('#home').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+        
+        // Create particles every 2 seconds
+        setInterval(createParticle, 2000);
     </script>
 </body>
 </html>
